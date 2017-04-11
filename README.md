@@ -17,7 +17,7 @@ Builds on run with the buildenv image as:
 
 ```
 $ docker build -t buildenv_taskd buildenv/
-$ docker run --rm --volume="$(pwd)/src:/usr/src" --volume="$(pwd)/dist:/dist" buildenv_taskd
+$ docker run --rm --volume="$(pwd)/src:/usr/src" --volume="$(pwd)/dist:/opt/taskd" buildenv_taskd
 ```
 
 Binaries will be in `./dist`

@@ -10,14 +10,11 @@ RUN apt-get update && apt-get install -y \
     libgnutls28-dev
 
 VOLUME /usr/src
-VOLUME /dist
+VOLUME /opt/taskd
 
 RUN mkdir /build
 WORKDIR /build
 
-CMD cmake -DCMAKE_INSTALL_PREFIX=/dist /usr/src/taskd.git && \
+CMD cmake -DCMAKE_INSTALL_PREFIX=/opt/taskd /usr/src/taskd.git && \
     make && make install
-
-
-
 
