@@ -1,3 +1,4 @@
 [submodule "src/taskd.git"]
 	path = src/taskd.git
 	url = https://git.tasktools.org/TM/taskd.git
+        ignore=untracked
