@@ -1,0 +1,7 @@
+taskd:
+  restart: always
+  image: mrdaemon/taskd:production
+  ports:
+    - 53589:53589
+  volumes:
+    - /srv/taskd:/var/taskd
