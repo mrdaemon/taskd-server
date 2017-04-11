@@ -6,8 +6,9 @@ LABEL description="TaskWarrior Server Image"
 RUN useradd --system --user-group --home-dir /opt/taskd \
     --create-home --shell /bin/false taskd
 
-# Create shitty "log" wrapper
-RUN ln -sf /dev/stdout /var/log/taskd.log
+# Create runtime directories and files
+RUN ln -sf /dev/stdout /var/log/taskd.log && \
+    mkdir -p /var/taskd
 
 # Set permissions
 RUN chown taskd:taskd /var/taskd && \
