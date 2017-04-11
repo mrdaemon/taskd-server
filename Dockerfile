@@ -3,17 +3,14 @@ FROM debian:8
 MAINTAINER Alexandre Gauthier <alex@lab.underwares.org>
 LABEL description="TaskWarrior Server Image"
 
-RUN useradd --system --user-group --home-dir /opt/taskd \
-    --create-home --shell /bin/false taskd
-
 # Create runtime directories and files
 RUN ln -sf /dev/stdout /var/log/taskd.log && \
     mkdir -p /var/taskd
 
 # Set permissions
-RUN chown taskd:taskd /var/taskd && \
+RUN chown nobody:nogroup /var/taskd && \
     chmod 700 /var/taskd && \
-    chown taskd:taskd /var/log/taskd.log
+    chown nobody:nogroup /var/log/taskd.log
 
 VOLUME /var/taskd
 
@@ -27,7 +24,7 @@ WORKDIR /opt/taskd
 COPY dist/ .
 COPY taskd.sh .
 
-USER taskd
+USER nobody
 
 ENV PATH "/opt/taskd/bin:$PATH"
 EXPOSE 53589
