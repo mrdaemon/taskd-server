@@ -9,5 +9,8 @@ fi
 mkdir -p "$TASKDDATA/example" || exit 1
 taskd init --data "$TASKDDATA/example"
 
+# Print version and diagnostics to logs
+taskd diagnostics --data "$TASKDDATA"
+
 # Hand off to taskd
 exec taskd server
