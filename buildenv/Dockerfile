@@ -15,6 +15,7 @@ VOLUME /opt/taskd
 RUN mkdir /build
 WORKDIR /build
 
-CMD cmake -DCMAKE_INSTALL_PREFIX=/opt/taskd /usr/src/taskd.git && \
+CMD cmake -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/opt/taskd /usr/src/taskd.git && \
     make && make install
 
