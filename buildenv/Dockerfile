@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:9
 
 MAINTAINER Alexandre Gauthier <alex@lab.underwares.org>
 LABEL description="Build Environment for TaskWarrior Server"

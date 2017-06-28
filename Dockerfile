@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:9
 
 MAINTAINER Alexandre Gauthier <alex@lab.underwares.org>
 LABEL description="TaskWarrior Server Image"
@@ -17,7 +17,7 @@ VOLUME /var/taskd
 # Install runtime deps
 RUN apt-get update && apt-get install -y \
     uuid \
-    libgnutls-deb0-28
+    libgnutls30
 
 # Copy binaries
 WORKDIR /opt/taskd

@@ -2,7 +2,7 @@
 # SUPER DIRTY AND NOT FOR PUBLIC CONSUMPTION
 # I AM ASHAMED DON'T LOOK SENPAI
 
-docker pull debian:8
+docker pull debian:9
 
 git submodule update --init
 docker build -t buildenv_taskd buildenv/ && \
