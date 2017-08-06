@@ -4,8 +4,5 @@
 
 docker pull debian:9
 
-git submodule update --init
-docker build -t buildenv_taskd buildenv/ && \
-    docker run --rm --volume="$(pwd)/src:/usr/src" \
-    --volume="$(pwd)/dist:/opt/taskd" buildenv_taskd && \
-    docker build -t taskd .
+git submodule update --init && \
+docker build -t taskd . 
