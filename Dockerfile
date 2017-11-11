@@ -22,8 +22,8 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release \
 # Runtime image
 FROM debian:9
 
-MAINTAINER Alexandre Gauthier <alex@lab.underwares.org>
-LABEL description="TaskWarrior Server Image"
+LABEL maintainer="Alexandre Gauthier <alex@lab.underwares.org>" \
+      description="TaskWarrior Server"
 
 # Create runtime directories and files
 RUN ln -sf /dev/stdout /var/log/taskd.log && \
