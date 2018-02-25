@@ -4,5 +4,5 @@
 
 docker pull debian:9
 
-git submodule update --init && \
+git submodule update --init --recursive && \
 docker build -t taskd . 
