@@ -20,7 +20,7 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release \
     make && make install
 
 # Runtime image
-FROM debian:9
+FROM debian:9-slim
 
 LABEL maintainer="Alexandre Gauthier <alex@lab.underwares.org>" \
       description="TaskWarrior Server"
