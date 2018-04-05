@@ -2,7 +2,5 @@
 # SUPER DIRTY AND NOT FOR PUBLIC CONSUMPTION
 # I AM ASHAMED DON'T LOOK SENPAI
 
-docker pull debian:9
-
 git submodule update --init --recursive && \
-docker build -t taskd . 
+docker build --pull -t taskd .
