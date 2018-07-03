@@ -36,10 +36,11 @@ RUN chown nobody:nogroup /var/taskd && \
 
 VOLUME /var/taskd
 
-# Install runtime deps
-RUN apt-get update && apt-get install -y \
+# Install runtime deps, remove apt cache
+RUN apt-get update && apt-get install --no-install-recommends -y \
     uuid \
-    libgnutls30
+    libgnutls30 && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy binaries off intermediate build container
 WORKDIR /opt/taskd
