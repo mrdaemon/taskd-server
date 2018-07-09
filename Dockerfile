@@ -38,7 +38,8 @@ VOLUME /var/taskd
 RUN apt-get update && apt-get install --no-install-recommends -y \
     uuid \
     libgnutls30 && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Copy binaries off intermediate build container
 WORKDIR /opt/taskd
