@@ -25,12 +25,10 @@ FROM debian:9-slim
 LABEL maintainer="Alexandre Gauthier <alex@lab.underwares.org>" \
       description="TaskWarrior Server"
 
-# Create runtime directories and files
+# Create runtime directories and files, set permissions
 RUN ln -sf /dev/stdout /var/log/taskd.log && \
-    mkdir -p /var/taskd
-
-# Set permissions
-RUN chown nobody:nogroup /var/taskd && \
+    mkdir -p /var/taskd && \
+    chown nobody:nogroup /var/taskd && \
     chmod 700 /var/taskd && \
     chown nobody:nogroup /var/log/taskd.log
 
