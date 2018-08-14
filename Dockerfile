@@ -25,12 +25,9 @@ FROM debian:9-slim
 LABEL maintainer="Alexandre Gauthier <alex@lab.underwares.org>" \
       description="TaskWarrior Server"
 
-# Create runtime directories and files, set permissions
+# Create runtime directories and files
 RUN ln -sf /dev/stdout /var/log/taskd.log && \
-    mkdir -p /var/taskd && \
-    chown nobody:nogroup /var/taskd && \
-    chmod 700 /var/taskd && \
-    chown nobody:nogroup /var/log/taskd.log
+    mkdir -p /var/taskd
 
 VOLUME /var/taskd
 
@@ -45,13 +42,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 WORKDIR /opt/taskd
 COPY --from=taskd_buildenv /opt/taskd .
 COPY taskd.sh .
-
-# Set explicit permissions and drop to unprivileged user
-#RUN chown -R root:root /opt/taskd && \
-#    find /opt/taskd/bin -type f -exec chmod ugo+rx,go-w {} \; && \
-#    find /opt/taskd/share -type f -exec chmod ugo+r,ugo-x {} \; && \ 
-#    chmod go-w,ugo+rx taskd.sh
-USER nobody
 
 ENV PATH "/opt/taskd/bin:$PATH"
 EXPOSE 53589

@@ -1,6 +1,7 @@
 taskd:
   restart: always
   image: mrdaemon/taskd:production
+  user: 65534:65534
   ports:
     - 53589:53589
   volumes:
