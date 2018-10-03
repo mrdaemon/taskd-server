@@ -3,4 +3,4 @@
 # I AM ASHAMED DON'T LOOK SENPAI
 
 git submodule update --init --recursive && \
-docker build --pull -t taskd .
+docker build --pull -t mrdaemon/taskd:experimental .
