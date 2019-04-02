@@ -12,7 +12,7 @@ RUN mkdir /build && mkdir -p /opt/taskd && mkdir -p /usr/src
 WORKDIR /build
 
 # Copy source code to build image
-COPY src/taskd.git /usr/src/taskd.git 
+COPY src/taskd.git /usr/src/taskd.git
 
 # Perform build
 RUN cmake -DCMAKE_BUILD_TYPE=Release \
