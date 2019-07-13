@@ -1,5 +1,5 @@
 # Intermediate Build Container
-FROM debian:9 AS taskd_buildenv
+FROM debian:10 AS taskd_buildenv
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -20,7 +20,7 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release \
     make && make install
 
 # Runtime image
-FROM debian:9-slim
+FROM debian:10-slim
 
 LABEL maintainer="Alexandre Gauthier <alex@lab.underwares.org>" \
       description="TaskWarrior Server"
