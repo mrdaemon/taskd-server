@@ -2,6 +2,7 @@
 FROM debian:10 AS taskd_buildenv
 
 RUN apt-get update && apt-get install -y \
+    coreutils \
     build-essential \
     cmake \
     uuid-dev \
@@ -17,7 +18,7 @@ COPY src/taskd.git /usr/src/taskd.git
 # Perform build
 RUN cmake -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/opt/taskd /usr/src/taskd.git && \
-    make && make install
+    make -j$(($(nproc)+1)) && make install
 
 # Runtime image
 FROM debian:10-slim
