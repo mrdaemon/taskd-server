@@ -1,6 +1,10 @@
 Taskwarrior Server Environment
 ==============================
 
+> **Warning**
+> This project has more or less been abandoned, as the taskwarrior project has not updated in a while and I have stopped using it myself.
+> You are free to continue using this image or to fork it, as newer releases should still build under the Dockerfile, but I will not be maintaining it any further.
+
 Taskd docker image.
 Automated builds are available here:
 https://hub.docker.com/r/mrdaemon/taskd/
